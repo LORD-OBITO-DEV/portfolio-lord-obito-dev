@@ -1,8 +1,8 @@
 import React from 'react'
 
 const projects = [
-  { id:1, title:'LORD OBITO XMD - Bot WhatsApp', desc:'Bot WhatsApp basé sur Baileys', link:'https://github.com/LORD-OBITO-DEV/LORD_OBITO-XMD-V2' },
-  { id:2, title:'LORD OBITO PANEL', desc:'Panel d'administration pour hébergeurs', link:'#' },
+  { id:1, title:"LORD OBITO XMD - Bot WhatsApp", desc:"Bot WhatsApp basé sur Baileys", link:"https://github.com/LORD-OBITO-DEV/LORD_OBITO-XMD-V2" },
+  { id:2, title:"LORD OBITO PANEL", desc:"Panel d'administration pour hébergeurs", link:'#' },
 ]
 
 export default function Projects(){
