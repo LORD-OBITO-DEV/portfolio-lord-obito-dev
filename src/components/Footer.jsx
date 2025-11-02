@@ -9,9 +9,9 @@ export default function Footer() {
   ];
 
   const donations = [
-    { name: "PayPal", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/paypal.svg", url: "#" },
-    { name: "Wave", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wave.svg", url: "#" },
-    { name: "Orange Money", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/orange.svg", url: "#" },
+    { name: "PayPal", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/paypal.svg", url: "https://paypal.me/TonPseudoOuLien" },
+    { name: "Wave", icon: "data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDA3QkYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDUxMiA1MTIiPjxwYXRoIGQ9Ik0yNTYsMGMyOC4zLDAsNTUuMyw0LjgsODAuMiwxMy43bC0xOS41LDUzLjZDMzA0LjIsNTcuMywyODAuOCw1NSwyNTYsNTVTMjA3LjgsNTcuMywxOTkuMyw2Ny4zTDE4MCwzMy44QzIwNC43LDI0LjgsMjMxLjcsMCwyNTYsMHoiLz48L3N2Zz4=", url: "https://wave.com/link-de-paiement" },
+    { name: "Orange Money", icon: "data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkY4MDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNNDI0LDMwMkM0MjQsNDQ2LjcsMzM0LjcsNTM2LDE5MC41LDUzNlM0Miw0NDYuNyw0MiwzMDJDNDEuOSwyNTYuNSw2OC4yLDEzOC4zLDE5MC41LDEyM2MzMi4yLTkuOCw2OC4xLTguNCw5OC41LDYuN2wyMy40LTcwLjVjLTMwLjktMTUuNy02OS44LTE2LjgtMTAyLjUtNy4zQzgwLjUsMTE2LjUsMzUuMSwyMTEuNiw0MiwzMDJ6Ii8+PC9zdmc+", url: "https://orangemoney.com/link-de-paiement" },
   ];
 
   return (
@@ -28,9 +28,9 @@ export default function Footer() {
                 href={d.url}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg transform transition duration-300 hover:bg-blue-500 hover:scale-105 hover:shadow-lg"
               >
-                <img src={d.icon} alt={d.name} className="w-5 h-5 invert" />
+                <img src={d.icon} alt={d.name} className="w-5 h-5" />
                 {d.name}
               </a>
             ))}
@@ -64,4 +64,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+            }
