@@ -1,6 +1,7 @@
-// src/pages/Home.jsx
 import React, { useEffect } from "react";
 import Hero from "../components/Hero";
+import Parcours from "../components/Parcours";
+import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
@@ -45,6 +46,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-slate-800">
       <Hero />
+      <Parcours />
+      <Skills />
       <Projects projects={projects} author={author} />
       <Contact author={author} />
       <Footer />
