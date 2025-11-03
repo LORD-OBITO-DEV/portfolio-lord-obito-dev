@@ -54,7 +54,7 @@ export default function Hero() {
         <div className="flex justify-center reveal">
           <div className="relative w-64 h-64 rounded-2xl overflow-hidden shadow-xl bg-slate-100 flex items-center justify-center">
             <img
-              src="/assets/profile.jpg"
+              src="https://files.catbox.moe/x4k80u.webp"
               alt="Lord Obito Dev"
               className="w-full h-full object-cover"
               onError={(e) => (e.target.style.display = "none")}
