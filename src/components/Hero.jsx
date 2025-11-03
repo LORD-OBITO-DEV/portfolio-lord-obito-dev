@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ScrollReveal from "scrollreveal";
 
 export default function Hero() {
+  const [imgError, setImgError] = useState(false);
+
   useEffect(() => {
     ScrollReveal().reveal(".reveal", {
       distance: "50px",
@@ -53,15 +55,17 @@ export default function Hero() {
         {/* Image ou logo */}
         <div className="flex justify-center reveal">
           <div className="relative w-64 h-64 rounded-2xl overflow-hidden shadow-xl bg-slate-100 flex items-center justify-center">
-            <img
-              src="https://files.catbox.moe/x4k80u.webp"
-              
-              className="w-full h-full object-cover"
-              onError={(e) => (e.target.style.display = "none")}
-            />
-            <div className="absolute text-4xl font-extrabold text-slate-300">
-              LO
-            </div>
+            {!imgError ? (
+              <img
+                src="https://files.catbox.moe/x4k80u.webp"
+                className="w-full h-full object-cover"
+                onError={() => setImgError(true)}
+              />
+            ) : (
+              <div className="text-4xl font-extrabold text-slate-300">
+                LO
+              </div>
+            )}
           </div>
         </div>
       </div>
