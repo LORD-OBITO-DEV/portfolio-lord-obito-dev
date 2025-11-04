@@ -1,3 +1,4 @@
+// src/components/Hero.jsx
 import React, { useState, useEffect } from "react";
 import ScrollReveal from "scrollreveal";
 
@@ -16,22 +17,22 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="bg-white text-slate-800 py-20 px-6 md:px-12">
+    <section className="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 py-20 px-6 md:px-12 transition-colors duration-500">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         
         {/* Texte principal */}
         <div className="space-y-6 reveal">
-          <div className="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full font-semibold text-sm">
+          <div className="inline-block bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-4 py-1.5 rounded-full font-semibold text-sm shadow-sm">
             Développeur Fullstack & Créateur de Bots
           </div>
 
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
             Salut 👋, je suis{" "}
-            <span className="text-blue-600">LORD OBITO DEV</span>
+            <span className="text-blue-600 dark:text-blue-400">LORD OBITO DEV</span>
           </h1>
 
-          <p className="text-lg text-slate-600 leading-relaxed">
-            Fondateur de <strong>LORD OBITO TECH</strong> — je conçois des sites
+          <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+            Fondateur de <strong className="text-blue-700 dark:text-blue-400">LORD OBITO TECH</strong> — je conçois des sites
             modernes et des bots puissants pour automatiser les communications,
             améliorer l’expérience utilisateur et booster la productivité.
           </p>
@@ -39,13 +40,13 @@ export default function Hero() {
           <div className="flex flex-wrap gap-4 pt-3">
             <a
               href="#projects"
-              className="px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+              className="px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400 transition"
             >
               🚀 Voir mes projets
             </a>
             <a
               href="#contact"
-              className="px-6 py-3 rounded-lg border border-slate-300 hover:bg-slate-50 transition font-semibold"
+              className="px-6 py-3 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900 transition font-semibold"
             >
               📩 Me contacter
             </a>
@@ -54,15 +55,16 @@ export default function Hero() {
 
         {/* Image ou logo */}
         <div className="flex justify-center reveal">
-          <div className="relative w-64 h-64 rounded-2xl overflow-hidden shadow-xl bg-slate-100 flex items-center justify-center">
+          <div className="relative w-64 h-64 rounded-2xl overflow-hidden shadow-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center transition-all duration-500 hover:scale-105">
             {!imgError ? (
               <img
                 src="https://files.catbox.moe/x4k80u.webp"
                 className="w-full h-full object-cover"
                 onError={() => setImgError(true)}
+                alt="LORD OBITO DEV"
               />
             ) : (
-              <div className="text-4xl font-extrabold text-slate-300">
+              <div className="text-4xl font-extrabold text-slate-300 dark:text-slate-500">
                 LO
               </div>
             )}
@@ -71,4 +73,4 @@ export default function Hero() {
       </div>
     </section>
   );
-}
+                }
