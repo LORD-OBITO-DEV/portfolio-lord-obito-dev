@@ -1,13 +1,26 @@
-// src/components/Projects.jsx
-import React from "react";
+import React, { useEffect } from "react";
+import ScrollReveal from "scrollreveal";
 
 export default function Projects({ projects, author }) {
+  useEffect(() => {
+    const sr = ScrollReveal({
+      distance: "50px",
+      duration: 1000,
+      easing: "ease-in-out",
+      origin: "bottom",
+      interval: 150,
+      reset: false,
+    });
+    sr.reveal(".project-card");
+  }, []);
+
   return (
     <section
       id="projects"
-      className="mt-12 max-w-6xl mx-auto px-6 transition-colors duration-500"
+      className="mt-16 max-w-6xl mx-auto px-6 transition-colors duration-500
+                 bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100"
     >
-      <h2 className="text-3xl font-semibold text-slate-900 dark:text-slate-100 mb-6 text-center">
+      <h2 className="text-3xl font-semibold mb-8 text-center">
         Mes Projets
       </h2>
 
@@ -15,9 +28,10 @@ export default function Projects({ projects, author }) {
         {projects.map((p) => (
           <article
             key={p.id}
-            className="p-6 border rounded-2xl bg-white dark:bg-slate-900 dark:border-slate-700 shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1"
+            className="project-card p-6 rounded-xl shadow-md hover:shadow-lg transition-all
+                       bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
           >
-            <h3 className="font-semibold text-lg">
+            <h3 className="font-semibold text-lg mb-2 text-slate-900 dark:text-white">
               <a
                 href={p.link}
                 target="_blank"
@@ -28,36 +42,37 @@ export default function Projects({ projects, author }) {
               </a>
             </h3>
 
-            <p className="mt-2 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+            <p className="text-sm text-slate-600 dark:text-slate-300 mb-3">
               {p.desc}
             </p>
 
-            <div className="mt-3 flex gap-2 flex-wrap">
+            <div className="flex flex-wrap gap-2 mb-4">
               {p.tags.map((tag, i) => (
                 <span
                   key={i}
-                  className="px-2 py-1 text-xs rounded border text-slate-500 dark:text-slate-400 dark:border-slate-600"
+                  className="px-2 py-1 text-xs rounded border text-slate-500 dark:text-slate-300 
+                             border-slate-300 dark:border-slate-600"
                 >
                   {tag}
                 </span>
               ))}
             </div>
 
-            <div className="mt-4 flex gap-3">
+            <div className="flex gap-3">
               <a
                 href={p.link}
                 target="_blank"
                 rel="noreferrer"
-                className="text-sm px-4 py-2 rounded border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                className="text-sm px-4 py-2 rounded border border-slate-400 dark:border-slate-600
+                           hover:bg-slate-100 dark:hover:bg-slate-700 transition"
               >
                 Voir le projet
               </a>
-
               <a
                 href={`mailto:${author.email}?subject=À propos de: ${encodeURIComponent(
                   p.title
                 )}`}
-                className="text-sm px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400 transition"
+                className="text-sm px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition"
               >
                 Me contacter
               </a>
@@ -67,4 +82,4 @@ export default function Projects({ projects, author }) {
       </div>
     </section>
   );
-}
+              }
