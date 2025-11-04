@@ -1,30 +1,74 @@
-import React from "react";
+import React, { useEffect } from "react";
+import ScrollReveal from "scrollreveal";
 
-export default function Contact({ author }) {
+export default function Contact() {
+  useEffect(() => {
+    ScrollReveal().reveal(".contact-section", {
+      distance: "50px",
+      duration: 1000,
+      easing: "ease-out",
+      origin: "bottom",
+      interval: 100,
+      reset: false,
+    });
+  }, []);
+
   return (
-    <section id="contact" className="mt-16 max-w-6xl mx-auto px-6">
-      <h2 className="text-3xl font-semibold text-slate-900 mb-4">Contact</h2>
-      <p className="text-slate-600 mb-6">
-        Envie de collaborer ? Contactez-moi via ce formulaire, ou directement par mail.
-      </p>
+    <section
+      id="contact"
+      className="contact-section py-20 px-6 md:px-12 transition-colors duration-500
+                 bg-gray-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100"
+    >
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl font-semibold mb-4">📩 Me Contacter</h2>
+        <p className="text-slate-600 dark:text-slate-300 mb-8">
+          Tu veux collaborer, poser une question ou lancer un projet ?  
+          N’hésite pas à m’envoyer un message, je te répondrai rapidement.
+        </p>
 
-      <form
-        action="https://formspree.io/f/xvgvlzrg"
-        method="POST"
-        className="grid md:grid-cols-2 gap-4 bg-white p-6 rounded-xl shadow-sm border"
-      >
-        <input name="name" placeholder="Votre nom" className="p-3 rounded border" required />
-        <input name="email" type="email" placeholder="Votre email" className="p-3 rounded border" required />
-        <input name="subject" placeholder="Sujet" className="p-3 rounded border md:col-span-2" required />
-        <textarea name="message" placeholder="Message" className="p-3 rounded border md:col-span-2" rows={5} required />
-        <button type="submit" className="px-4 py-2 rounded bg-blue-600 text-white font-semibold md:col-span-2 hover:bg-blue-700 transition">
-          Envoyer
-        </button>
-      </form>
+        <form
+          action="https://formspree.io/f/yourFormID"
+          method="POST"
+          className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 space-y-6
+                     border border-slate-200 dark:border-slate-700 max-w-2xl mx-auto"
+        >
+          <div className="grid md:grid-cols-2 gap-6">
+            <input
+              type="text"
+              name="name"
+              placeholder="Votre nom"
+              required
+              className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600
+                         bg-transparent focus:ring-2 focus:ring-blue-500 outline-none"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Votre email"
+              required
+              className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600
+                         bg-transparent focus:ring-2 focus:ring-blue-500 outline-none"
+            />
+          </div>
 
-      <div className="mt-6 text-sm text-slate-500">
-        Direct: <strong>{author.email}</strong> — {author.phone}
+          <textarea
+            name="message"
+            placeholder="Votre message..."
+            rows="5"
+            required
+            className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600
+                       bg-transparent focus:ring-2 focus:ring-blue-500 outline-none"
+          ></textarea>
+
+          <button
+            type="submit"
+            className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700
+                       transition w-full md:w-auto"
+          >
+            Envoyer ✉️
+          </button>
+        </form>
       </div>
     </section>
   );
-}
+          }
