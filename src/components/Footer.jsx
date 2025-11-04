@@ -9,10 +9,11 @@ export default function Footer() {
   ];
 
   const donations = [
-    { name: "PayPal", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/paypal.svg", url: "https://paypal.me/TonLien" },
-    { name: "Wave", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wave.svg", url: "tel:+2250712668494" }, // Remplace par ton numéro Wave
-    { name: "Orange Money", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/orange.svg", url: "tel:+2250712668494" }, // Remplace par ton numéro OM
-  ];
+  { name: "PayPal", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/paypal.svg", url: "https://www.paypal.me/Lordobitodev" },
+  { name: "Wave", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wave.svg", url: "tel:+2250712668494" },
+  { name: "Orange Money", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/orange.svg", url: "tel:+2250712668494" },
+  { name: "MTN MoMo", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mtn.svg", url: "tel:+2250712668494" },
+];
 
   return (
     <footer className="bg-white dark:bg-slate-900 border-t mt-16 py-10 text-center text-slate-700 dark:text-slate-300">
@@ -69,4 +70,5 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+   }
+            
