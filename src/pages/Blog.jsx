@@ -1,19 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import ScrollReveal from "scrollreveal";
+import Footer from "../components/Footer";
 
+// Liste des articles
 const articlesData = [
   {
     id: 1,
     title: "Crée ton propre Bot WhatsApp – Tutoriel Complet !",
     excerpt:
-      "Découvre comment créer ton bot WhatsApp avec tous les fichiers, étapes d’installation et commandes prêtes à l’emploi !",
+      "Tu veux créer ton bot WhatsApp mais tu ne sais pas par où commencer ? Cette vidéo te montre tout ce qu’il faut — les fichiers, l’installation, et même des modèles de commandes prêts à l’emploi si tu ne sais pas coder !",
     content: (
       <>
         <p>
           📹 Regarde le tuto complet ici 👉{" "}
           <a
             href="https://youtu.be/-24iwWriOCc"
-            className="text-blue-600 dark:text-blue-400 underline"
+            className="text-blue-600 underline"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -24,7 +26,7 @@ const articlesData = [
           📦 Fichiers du bot (Téléchargement) ➡️{" "}
           <a
             href="https://t.me/Lord_obito_tech_official/37"
-            className="text-blue-600 dark:text-blue-400 underline"
+            className="text-blue-600 underline"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -36,7 +38,7 @@ const articlesData = [
           <li>
             <a
               href="https://t.me/Lord_obito_tech_official/44"
-              className="text-blue-600 dark:text-blue-400 underline"
+              className="text-blue-600 underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -46,7 +48,7 @@ const articlesData = [
           <li>
             <a
               href="https://t.me/Lord_obito_tech_official/46"
-              className="text-blue-600 dark:text-blue-400 underline"
+              className="text-blue-600 underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -54,38 +56,42 @@ const articlesData = [
             </a>
           </li>
         </ul>
+        <p>
+          🧠 Comment l’utiliser : Ouvre le fichier, copie tout le contenu, puis
+          envoie-le à ton IA — de préférence sur GPT Chat. Elle générera
+          automatiquement les commandes de ton bot !
+        </p>
         <p className="font-semibold">
-          ✨ Ouvre le fichier, copie tout le contenu, puis envoie-le à ton IA —
-          de préférence sur GPT Chat. Elle générera automatiquement les commandes
-          de ton bot !
+          ✨ N’oublie pas de liker, t’abonner et partager à tes amis qui veulent
+          leur propre bot !
         </p>
       </>
     ),
   },
   {
     id: 2,
-    title: "Automatiser WhatsApp avec ton bot",
+    title: "Comment automatiser WhatsApp avec ton bot",
     excerpt:
-      "Découvre comment ton bot peut répondre automatiquement, envoyer des rappels et gérer des groupes.",
+      "Découvre comment automatiser tes conversations WhatsApp et gérer les tâches répétitives grâce à ton bot personnalisé.",
     content: (
       <p>
-        Ce guide te montre comment ajouter des commandes automatiques, gérer des
-        groupes efficacement et personnaliser les réactions de ton bot 🔥.
+        Ce guide te montrera comment configurer les commandes automatiques,
+        envoyer des réponses programmées et gérer tes contacts efficacement. 🔥
       </p>
     ),
   },
   {
     id: 3,
-    title: "Top 5 des projets simples pour débuter",
+    title: "Top 5 des projets pour débuter avec un bot",
     excerpt:
-      "Voici 5 idées de bots parfaits pour débuter avec JavaScript et Baileys.",
+      "Tu veux te lancer dans le développement de bots mais tu ne sais pas quoi créer en premier ? Voici 5 idées de projets qui te feront progresser rapidement !",
     content: (
       <ul className="list-disc ml-6">
-        <li>Bot de notifications de groupe 📢</li>
-        <li>Bot de quiz interactif 🎯</li>
-        <li>Bot pour rappels quotidiens ⏰</li>
-        <li>Bot de téléchargement média 🎵</li>
-        <li>Bot de sondages anonymes 📊</li>
+        <li>Bot de notifications pour groupes WhatsApp</li>
+        <li>Bot pour envoyer des rappels quotidiens</li>
+        <li>Bot de quiz interactif</li>
+        <li>Bot pour gérer des sondages</li>
+        <li>Bot de téléchargement multimédia</li>
       </ul>
     ),
   },
@@ -95,13 +101,16 @@ export default function Blog() {
   const [expandedId, setExpandedId] = useState(null);
   const articleRefs = useRef([]);
 
+  // ScrollReveal pour les articles
   useEffect(() => {
-    ScrollReveal().reveal(".blog-article", {
+    ScrollReveal().reveal(articleRefs.current, {
       origin: "bottom",
       distance: "50px",
       duration: 1000,
-      interval: 150,
       easing: "ease-out",
+      interval: 200,
+      scale: 0.95,
+      opacity: 0,
       reset: false,
     });
   }, []);
@@ -111,25 +120,22 @@ export default function Blog() {
   };
 
   return (
-    <section
-      id="blog"
-      className="py-20 px-6 md:px-12 bg-gray-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-500"
-    >
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold mb-10 text-center text-blue-600 dark:text-blue-400">
-          📰 Blog – LORD OBITO TECH
-        </h2>
+    <div className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-300 min-h-screen transition-colors duration-500">
+      <div className="max-w-4xl mx-auto p-6 space-y-10">
+        <h1 className="text-4xl font-extrabold text-center text-blue-600">
+          Blog – LORD OBITO TECH
+        </h1>
 
         <div className="space-y-8">
           {articlesData.map((article, idx) => (
             <div
               key={article.id}
               ref={(el) => (articleRefs.current[idx] = el)}
-              className="blog-article border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden bg-white dark:bg-slate-800 shadow-lg hover:-translate-y-1 hover:shadow-2xl transition-transform duration-300"
+              className="border rounded-xl shadow-lg overflow-hidden bg-white dark:bg-slate-800 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
               <button
                 onClick={() => toggleExpand(article.id)}
-                className="w-full text-left px-6 py-4 flex justify-between items-center bg-blue-50 dark:bg-slate-700/40 hover:bg-blue-100 dark:hover:bg-slate-700/60 font-semibold text-blue-700 dark:text-blue-300"
+                className="w-full text-left px-6 py-4 bg-blue-50 dark:bg-slate-700 hover:bg-blue-100 dark:hover:bg-slate-600 flex justify-between items-center font-semibold text-blue-700 dark:text-blue-300 focus:outline-none transition-colors"
               >
                 <span>{article.title}</span>
                 <span
@@ -143,12 +149,10 @@ export default function Blog() {
 
               <div
                 className={`overflow-hidden transition-all duration-500 ${
-                  expandedId === article.id
-                    ? "max-h-[1000px] opacity-100"
-                    : "max-h-0 opacity-0"
+                  expandedId === article.id ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
                 }`}
               >
-                <div className="px-6 py-4 text-slate-700 dark:text-slate-300 space-y-3 border-t border-slate-200 dark:border-slate-600">
+                <div className="px-6 py-4 text-slate-700 dark:text-slate-300 space-y-2 border-t">
                   <p>{article.excerpt}</p>
                   {article.content}
                 </div>
@@ -158,9 +162,8 @@ export default function Blog() {
         </div>
       </div>
 
-      <footer className="mt-20 text-center text-sm text-slate-500 dark:text-slate-400">
-        © {new Date().getFullYear()} LORD OBITO TECH — Tous droits réservés ⚡
-      </footer>
-    </section>
+      {/* Footer */}
+      <Footer />
+    </div>
   );
-          }
+      }
